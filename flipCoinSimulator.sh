@@ -1,26 +1,39 @@
 #!/bin/bash -x
 
-# consonats
+# constants
 HEAD=1
 TAIL=0
 
 # variable
 headCount=0
 tailCount=0
-totalCount=0
 
-while [ $totalCount -lt 100 ]
+while [ $headCount -lt 21 ] && [ $tailCount -lt 21 ]
 do
 	flag=$((RANDOM%2))
 	if [ $flag -eq $HEAD ]
 	then 
 		let headCount++
+
 	else
 		let tailCount++
-	fi
 
+	fi
 	let totalCount++
 done
 
-echo "Head wins $headCount times"
-echo "Tail wins $tailCount times"
+if [ $headCount -gt $tailCount ]
+then
+	hwin=$((headCount-tailCount))
+	echo "Head wins by $hwin times"
+
+elif [ $tailCount -gt $headCount ]
+then
+	twin=$((tailCount-headCount))
+	echo "Tail wins by $twin times"
+
+else
+		echo "Tie"
+
+fi
+

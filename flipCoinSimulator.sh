@@ -1,3 +1,17 @@
 #!/bin/bash -x
 
-echo "Welcome to Flip Coin Similution Program"
+# consonats
+HEAD=1
+TAIL=0
+
+# variable
+flag=$((RANDOM%2))
+
+if [ $flag -eq $HEAD ]
+then 
+	echo "Head is winner"
+else
+	echo "Tail is winner"
+fi
+
+ 

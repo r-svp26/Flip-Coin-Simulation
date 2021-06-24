@@ -5,13 +5,22 @@ HEAD=1
 TAIL=0
 
 # variable
-flag=$((RANDOM%2))
+headCount=0
+tailCount=0
+totalCount=0
 
-if [ $flag -eq $HEAD ]
-then 
-	echo "Head is winner"
-else
-	echo "Tail is winner"
-fi
+while [ $totalCount -lt 100 ]
+do
+	flag=$((RANDOM%2))
+	if [ $flag -eq $HEAD ]
+	then 
+		let headCount++
+	else
+		let tailCount++
+	fi
 
- 
+	let totalCount++
+done
+
+echo "Head wins $headCount times"
+echo "Tail wins $tailCount times"

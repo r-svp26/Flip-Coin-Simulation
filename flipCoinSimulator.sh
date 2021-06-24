@@ -19,7 +19,7 @@ do
 		let tailCount++
 
 	fi
-	let totalCount++
+
 done
 
 if [ $headCount -gt $tailCount ]
@@ -33,7 +33,17 @@ then
 	echo "Tail wins by $twin times"
 
 else
-		echo "Tie"
+	while [ $headCount -lt $((tailCount+2)) ] && 
+		[ $tailCount -lt $((headCount+2)) ]
+	do
+		flag=$((RANDOM%2))
+        	if [ $flag -eq $HEAD ]
+        	then
+                	let headCount++
 
+        	else
+                	let tailCount++
+
+        	fi
+	done
 fi
-
